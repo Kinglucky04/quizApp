@@ -1,3 +1,5 @@
+import {startTimer} from './timer.js';
+
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
@@ -7,7 +9,10 @@ const answerElement = document.getElementById('answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
 let userScore = [];
 
-startButton.addEventListener('click',  startGame);
+startButton.addEventListener('click', () => {
+    startGame();
+    startTimer();
+});
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
