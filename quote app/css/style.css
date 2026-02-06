@@ -1,0 +1,107 @@
+:root {
+  --playfair-display: "Playfair Display", serif;
+  --plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+
+  --primary-color: #b1454a;
+  --secondary-color: #121212;
+
+  --black-200: #020202;
+  --black-300: #333333;
+  --black-400: #1f1e31;
+  --black-500: #555555;
+  --gray-100: #888888;
+
+  --color-white: #fff;
+  --color-creamson: #fff0de;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--playfair-display);
+}
+
+body{
+    background-color: #bbc6fa;
+}
+
+.card{
+    background: #fff;
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h1{
+    font-size: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.card h1::after{
+    content: '';
+    width: 150px;
+    height: 3px;
+    border-radius: 3px;
+    background: rgb(23, 124, 229);
+    position: absolute;
+    bottom: -10px;
+    right: 50%;
+    transform: translate(50%);
+}
+
+.card blockquote{
+    font-size: 30px;
+    min-height: 110px;
+}
+
+.card blockquote::before, .card blockquote::after{
+    content: '"';
+}
+
+.card span{
+    font-size: 18px;
+    display: block;
+    margin-top: 10px;
+    float: right;
+    position: relative;
+}
+
+.card span::before{
+    content: '';
+    width: 20px;
+    height: 3px;
+    background: rgb(23, 124, 229);
+    position: absolute;
+    top: 50%;
+    left: -30px;
+}
+
+.card div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.card button{
+    background: rgb(23, 124, 229);
+    color: #fff;
+    border-radius: 25px;
+    border: 1px solid rgb(23, 124, 229);
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --primary-color: #ed1d24;
+    --primary-color-dark: #b80314;
+    --white: #fff;
+    --max-width: 1200px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+img{
+    display: flex;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul{
+    list-style: none;
+}
+
+
+.main{
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+
+    background-image: url("../assets/image/header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main::before{
+    position: absolute;
+    content: "";
+    inset: 0;
+    opacity: 1;
+    background-color: #060604;
+    z-index: 1;
+    pointer-events: none;
+
+
+    animation: main-slider 2s ease-in-out forwards;
+}
+
+@keyframes main-slider {
+    90%{
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    100%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+nav{
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-header{
+    padding: 15px 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+
+.nav_logo a img{
+  max-width: 75px;
+}
+
+.nav-menu-btn{
+    font-size: 40px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.nav-links{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    gap: 2rem;
+    padding: 3rem;
+    transition: transform 0.5s;
+    z-index: 998;
+    margin-top: 1rem;
+}
+
+.nav-links.open{
+    transform: translateY(100%);
+}
+
+.nav-links a{
+    color: var(--white);
+    white-space: nowrap;
+}
+
+@media (width > 768px){
+    nav{
+        position: static;
+        padding: 2rem;
+        max-width: var(--max-width);
+        margin-inline: auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .nav-header{
+        width: fit-content;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .nav_logo a img{
+        max-width: 120px;
+    }
+
+    .nav-menu-btn{
+        display: none;
+    }
+
+    .nav-links{
+        position: static;
+        width: fit-content;
+        padding: 0;
+        flex-direction: row;
+        gap: 3rem;
+        background-color: transparent;
+        transform: none !important;
+    }
+
+    .nav-links a:hover{
+        color: var(--primary-color-dark);
+    }
+}
+
+.header-container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.header-container h1{
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 0 1rem;
+    flex-wrap: wrap;
+    font-weight: 800;
+    color: var(--white);
+    font-family: "Roboto slab", sans-serif;
+}
+
+.header-container h1 span:nth-child(1){
+    font-size: 6rem;
+    line-height: 6rem;
+}
+
+.header-container h1 span:nth-child(2){
+    font-size: 2rem;
+}
+
+.header-container p{
+    margin-bottom: 2rem;
+    max-width: calc((var(--max-width)) / 2);
+    line-height: 1.75rem;
+    color: var(--white);
+}
+
+button{
+    padding: 1.5rem 2rem;
+    margin: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--primary-color-dark);
+}
+
+.socials{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.socials a{
+    display: inline-flex;
+    padding: 15px 20px;
+    font-display: 1.2rem;
+    color: var(--white);
+    border: 1px solid var(--primary-color);
+}
+
+.socials a:hover{
+    color: var(--primary-color);
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
+@media (width > 540px){
+    .header__container h1 span::nth-child(1){
+        font-size: 8rem;
+        line-height: 7.5rem;
+    }
+}
