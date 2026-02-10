@@ -1,88 +1,162 @@
-*, *::before, *::after{
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    font-family: Gotham Rounded;
+    font-family: "Inter", system-ui, sans-serif;
 }
 
-:root{
-    --hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
-}
-
-body{
-    --hue: var(--hue-neutral);
+/* BACKGROUND */
+body {
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: hsl(var(--hue-neutral), 100%, 20%);
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-body.correct{
-    --hue: var(--hue-correct);
-}
-
-body.wrong{
-    --hue: var(--hue-wrong);
-}
-
-.container{
-    width:800px;
-    max-width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 20px 5px;
-}
-
-.btn-grid{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.btn{
-    --hue:  var(--hue-neutral);
-    border: 1px solid hsl(var(--hue-neutral), 100%, 30%);
-    background-color: hsl(var(--hue-neutral), 100%, 20%);
-    outline: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+.container {
+    width: 760px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     color: white;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timer {
     font-size: 20px;
-    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* QUESTION */
+#questions {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* ANSWERS */
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.btn {
+    background: rgba(255,255,255,0.18);
+    border: none;
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.btn.correct {
+    background: rgba(34,197,94,0.85);
+}
+
+.btn.wrong {
+    background: rgba(239,68,68,0.85);
+}
+
+/* BOTTOM BAR */
+.control {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* ACTION BUTTONS */
+.start-btn,
+.next-btn {
+    background: white;
+    color: #4c1d95;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-weight: 600;
+    border: none;
     cursor: pointer;
 }
 
-.btn:hover{
-    border-color: black;
+.start-btn:hover,
+.next-btn:hover {
+    opacity: 0.9;
 }
 
-.correct{
-    --hue: var(--hue-correct);
-    background-color: hsl(var(--hue-correct), 100%, 20%);
-    border-color: hsl(var(--hue-correct), 100%, 30%);
-    color: black;
-}
-
-.wrong{
-    --hue: var(--hue-wrong);
-    background-color: hsl(var(--hue-wrong), 100%, 20%);
-    border-color: hsl(var(--hue-wrong), 100%, 30%);
-    color: black;
-}
-
-
-.start-btn, .next-btn{
-    font-size: 25px;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-.hide{
+.hide {
     display: none;
 }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.timer.warning {
+    animation: pulse 1s infinite;
+}
+
+.rules-box {
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.rules-box h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.rules-box ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.rules-box li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.rules-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.quit-btn {
+    background: #e74c3c;
+    color: #fff;
+}
+
+

@@ -4,28 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz App</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css
+    ">
+     <script defer src="js/script.js" type="module"></script>
 </head>
 <body>
     <div class="container">
+        <div class="top-bar">
+            <div class="timer">
+                ⏱ Time: <span id="time">00:00</span>
+            </div>
+        </div>
+
+<div id="rules-box" class="rules-box">
+    <h2>Some rules of the quiz</h2>
+
+    <ul>
+        <li>You have <strong>20 minutes</strong> to answer <strong>50 questions</strong>.</li>
+        <li>Once you select your answer, it can’t be undone.</li>
+        <li>You can’t select any option once time goes off.</li>
+        <li>You can’t exit or pause the quiz once you have started.</li>
+        <li>You will get points based on the questions you answer.</li>
+    </ul>
+
+    <div class="rules-buttons">
+        <button id="quit-btn" class="btn quit-btn">Quit</button>
+        <button id="rules-start-btn" class="btn start-btn">Start Quiz</button>
+    </div>
+</div>
+
+
         <div id="question-container" class="hide">
             <div id="questions">Questions</div>
+
             <div id="answer-buttons" class="btn-grid">
                 <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
             </div>
         </div>
 
         <div class="control">
-            <button id="start-btn" class="start-btn btn">Start</button>
-            <button id="next-btn" class="next-btn btn hide">Next</button>
-        </div>
-    </div>
+            <div class="progress">
+                Question <span id="current-question">0</span> /
+                <span id="total-questions">10</span>
+            </div>
 
-    <script src="js/script.js".  type="module">
-        
-    </script>
+            <div class="controls-btn">
+                <button id="start-btn" class="start-btn btn">Start</button>
+                <button id="next-btn" class="next-btn btn hide">Next</button>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

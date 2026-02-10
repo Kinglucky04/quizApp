@@ -8,7 +8,7 @@ const timeElement = document.getElementById("time");
 const timerBox = document.querySelector(".timer");
 
 let timeLeft = 60; // seconds
-let timerInterval;
+export let timerInterval;
 
 export function startTimer() {
     clearInterval(timerInterval); // prevent multiple timers
@@ -45,6 +45,7 @@ export function updateTimeDisplay() {
 
 
 export function handleTimeUp() {
-    alert("Time's up!");
-    // auto-move to next question logic can go here
+    // alert("Time's up!");
+    // Dispatch a custom event so main.js can stop the quiz
+    document.dispatchEvent(new Event("timeUp"));
 }
